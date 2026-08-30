@@ -1,9 +1,14 @@
+<!-- 
+  Copyright © 2026 Paul Fenton
+  Value Companion AI Platform
+  All rights reserved.
+-->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surrey Social Value Platform | AI-Powered Impact Calculator</title>
+    <title>Value Companion AI | AI-Powered Impact Calculator</title>
     <meta name="description" content="Calculate and visualize the social value of your community projects with AI-powered insights">
     
     <!-- Tailwind CSS -->
@@ -107,7 +112,7 @@
                     <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                         <i data-lucide="heart-handshake" class="w-6 h-6 text-white"></i>
                     </div>
-                    <span class="text-xl font-bold">Surrey Social Value</span>
+                    <span class="text-xl font-bold">Value Companion</span>
                 </div>
                 
                 <div class="hidden md:flex items-center gap-8">
@@ -252,7 +257,22 @@
                     makes social value assessment accessible to everyone.
                 </p>
             </div>
-            
+    <div style="padding: 20px; text-align: center;">
+    <h3>Test Venice AI</h3>
+    <button onclick="testVenice()" style="padding: 10px 20px; cursor: pointer;">
+        Ask: "What is social value?"
+    </button>
+    <div id="venice-response" style="margin-top: 20px; padding: 15px; background: #f0f0f0; border-radius: 5px; min-height: 50px;"></div>
+</div>
+
+<script>
+function testVenice() {
+    document.getElementById('venice-response').innerText = 'Loading...';
+    askVenice('What is social value and why does it matter?').then(response => {
+        document.getElementById('venice-response').innerText = response;
+    });
+}
+</script>        
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="feature-card glass rounded-2xl p-8 hover:bg-white/5 transition-all group">
@@ -530,7 +550,7 @@
                 <div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
                     <i data-lucide="heart-handshake" class="w-6 h-6 text-white"></i>
                 </div>
-                <span class="font-bold">Surrey Social Value Platform</span>
+                <span class="font-bold">Value Companion AI</span>
             </div>
             
             <div class="flex items-center gap-6 text-gray-400">
@@ -726,6 +746,35 @@
         function playDemo() {
             alert('Demo video would play here!');
         }
-    </script>
+<script>
+    const VENICE_API_KEY = VENICE_INFERENCE_KEY_QSDVYnzgO7p7YJgDN-mJ4AiwEOgkr1wxKt6XFgCJYd;
+    const VENICE_URL = 'https://api.venice.ai/v1/chat/completions';
+    
+    async function askVenice(prompt) {
+        try {
+            const response = await fetch(VENICE_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${VENICE_API_KEY}`
+                },
+                body: JSON.stringify({
+                    model: 'k2.5',
+                    messages: [
+                        { role: 'system', content: 'You are a social value calculation assistant.' },
+                        { role: 'user', content: prompt }
+                    ],
+                    temperature: 0.7
+                })
+            });
+            
+            const data = await response.json();
+            return data.choices[0].message.content;
+        } catch (error) {
+            console.error('Venice AI Error:', error);
+            return 'Error: Could not get response';
+        }
+    }
+</script>
 </body>
 </html>
