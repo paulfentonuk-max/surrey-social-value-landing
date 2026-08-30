@@ -1,0 +1,11 @@
+/*
+ * Copyright © 2026 Paul Fenton
+ * Value Companion AI Platform
+ * All rights reserved.
+ * 
+ * This software is protected by copyright law and database rights.
+ * Unauthorized copying, distribution, or use is prohibited.
+ * 
+ * Contact: [your-email@example.com]
+ * Website: https://valuecompanion.ai
+ */

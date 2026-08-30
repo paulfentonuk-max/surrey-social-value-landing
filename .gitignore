@@ -1,0 +1,49 @@
+# Value Companion AI — Environment & Secrets
+.env
+.env.local
+.env.production
+
+# Secrets
+secrets/
+config/secrets.js
+*.pem
+*.key
+
+# Database
+*.db
+*.sqlite3
+dump.sql
+backups/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+*.pyc
+.Python
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary
+tmp/
+temp/
+.cache/
