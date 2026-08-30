@@ -1,0 +1,5 @@
+/*
+ * Copyright © 2026 Paul Fenton
+ * Value Companion AI Platform
+ * All rights reserved.
+ */
